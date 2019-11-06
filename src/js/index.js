@@ -33,7 +33,6 @@ var index_init = {
   calcBanner: function() {
     var headerH = document.querySelector("header").offsetHeight;
     var winH = $(window).height();
-    $(".index-banner").css("margin-top", headerH);
     $(".index-banner").height(winH - headerH);
   }
 };
@@ -72,7 +71,18 @@ var slider_init = function() {
     if (containerWidth || containerHeight) {
       var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
       var expectedHeight = Math.min(containerHeight, containerHeight);
-      slide.$ScaleSize(expectedWidth, expectedHeight);
+      slide.$ScaleWidth(expectedWidth);
+      slide.$ScaleWidth(expectedHeight);
+      $("#introduction-slide > div > div").css("transform", "scale(1)");
+      $("#introduction-slide").width($(".slider-box").width());
+      $("#introduction-slide").height($(".slider-box").height());
+      $(".w-slider-wrap").each(function () {
+        $(this)
+      });
+      $(".w-slider-wrap > div:first").css('width', "100%!important");
+      $(".w-slider-wrap > div:first").css("height", "100%!important");
+      // $("#introduction-slide > div > div").css("transform");
+      console.log($("#introduction-slide > div > div").css("transform", "scale(1)"));
     } else {
       window.setTimeout(ScaleSlider, 30);
     }

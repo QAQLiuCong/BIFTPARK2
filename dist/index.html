@@ -11,6 +11,7 @@
     <script src="./js/jquery.min.js"></script>
   </head>
 
+  
   <body>
     <header>
       <ul class="nav">
@@ -63,6 +64,7 @@
             scrollY = $(document).scrollTop()
         }
         if (scrollY < 50) {
+            $('header').css('position', 'relative')
             return $('header').stop().slideDown('fast')
         }
         e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
@@ -71,10 +73,12 @@
         if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
             direction = 'up'
         }
+        console.log(direction)
         if (e.target.scrollTopPosition > 0) {
             if (direction === 'down') {
                 $('header').stop().slideUp('fast')
             } else {
+                $('header').css('position', 'fixed')
                 $('header').stop().slideDown('fast')
             }
         }
