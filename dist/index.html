@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>首页</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/swiper.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <ul class="nav">
+        <li  class="park">
+          <a>国内园区</a>
+          <div class="menu">
+            <ul>
+              <li><a href="">北京园区</a></li>
+              <li><a href="">容城园区</a></li>
+              <li><a href="">晨风园区</a></li>
+              <li><a href="">海宁园区</a></li>
+              <li><a href="">青岛园区</a></li>
+              <li><a href="">兴城园区</a></li>
+            </ul>
+          </div>
+        </li>
+        <li ><a href="./fashionActivities.html">主要业务</a></li>
+        <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+        <li ><a href="./characteristicService.html">最新动态</a></li>
+        <li ><a href="./aboutUs.html">关于我们</a></li>
+      </ul>
+      <div class="language">
+        <span class="cur">中文</span>/<span>EN</span>
+      </div>
+    </header>
+    <script>
+
+    $('.nav li.park, .menu').hover(function(){
+      $('.menu', this).stop().fadeIn(200)
+    },function() {
+      $('.menu', this).stop().fadeOut(200)
+    })
+
+    var debounce = function(idle, action) {
+      var last
+      return function() {
+        var ctx = this, args = arguments
+        clearTimeout(last)
+        last = setTimeout(function() {
+          action.apply(ctx, args)
+        }, idle)
+      }
+    }
+
+    window.addEventListener('scroll', debounce(50, function(e) {
+        var scrollY = 0
+        if (window.scrollY) {
+            scrollY = window.scrollY
+        } else {
+            scrollY = $(document).scrollTop()
+        }
+        if (scrollY < 50) {
+            return $('header').stop().slideDown('fast')
+        }
+        e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+        e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+        var direction = 'down'
+        if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+            direction = 'up'
+        }
+        if (e.target.scrollTopPosition > 0) {
+            if (direction === 'down') {
+                $('header').stop().slideUp('fast')
+            } else {
+                $('header').stop().slideDown('fast')
+            }
+        }
+    }))
+    </script>
+    <main id="index">
+      <!-- banner -->
+      <div class="index-banner">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="">
+            </div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <!-- Introduction -->
+      <div class="introduction">
+        <div class="content">
+          北京服装学院服饰时尚设计产业创新园（简称北 服创新园）是北京服装学院积极融入产业，实践 服务产业发展理念的重要举措。自2012年成立以 来，已经陆续在北京朝阳、雄安、容城、江苏昆 山和浙江海宁建成四座特色园区，并有北京海淀、 山东青岛和辽宁兴城三座在建园区，总运营面积 超过85000㎡。
+        </div>
+        <div class="img">
+          <div class="slider-box">
+            <!--w-slide-->
+            <div class="w-slider" id="introduction-slide">
+              <div class="w-slider-wrap" data-u="slides">
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2819633.jpg" alt="品牌集合" title="品牌集合" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820149.jpg" alt="王逢陈" title="王逢陈" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820150.jpg" alt="王海震" title="王海震" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820152.jpg" alt="陈鹏" title="陈鹏" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820153.jpg" alt="CJYAO" title="CJYAO" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820151.jpg" alt="陈安琪" title="陈安琪" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820154.jpg" alt="夹生" title="夹生" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820158.jpg" alt="化米时尚" title="化米时尚" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820157.jpg" alt="易初风尚" title="易初风尚" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820156.jpg" alt="野生" title="野生" class="CutFill" />
+                  </a>
+                </div>
+                <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820155.jpg" alt="信玺" title="信玺" class="CutFill" />
+                  </a>
+                </div>
+              </div>
+              <!-- Arrow Navigator -->
+              <span data-u="arrowleft" class="w-point-left slideArrow " style="top:0px;left:12px;" data-autocenter="2">
+                <i class="w-itemicon mw-iconfont">&#xb133;</i>
+              </span>
+              <span data-u="arrowright" class="w-point-right slideArrow " style="top:0px;right:12px;" data-autocenter="2">
+                <i class="w-itemicon mw-iconfont">&#xb132;</i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="">关于我们</a></p>
+          <p><a href="">商标声明</a></p>
+          <p><a href="">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/jssor.slider-22.2.16-all.min.js"></script>
+    <script src="./js/slideShow.min.js"></script>
+    <script src="./js/index.min.js"></script>
+  </body>
+</html>

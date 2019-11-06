@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>大众美学</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/swiper.css" />
+    <link rel="stylesheet" href="./css/education.css" />
+</head>
+
+<body>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
+      </div>
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+    //   document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      completeLoading()
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
+      }
+    </script>
+
+    <header>
+      <ul class="nav">
+        <li  class="park">
+          <a>国内园区</a>
+          <div class="menu">
+            <ul>
+              <li><a href="">北京园区</a></li>
+              <li><a href="">容城园区</a></li>
+              <li><a href="">晨风园区</a></li>
+              <li><a href="">海宁园区</a></li>
+              <li><a href="">青岛园区</a></li>
+              <li><a href="">兴城园区</a></li>
+            </ul>
+          </div>
+        </li>
+        <li ><a href="./fashionActivities.html">主要业务</a></li>
+        <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+        <li ><a href="./characteristicService.html">最新动态</a></li>
+        <li ><a href="./aboutUs.html">关于我们</a></li>
+      </ul>
+      <div class="language">
+        <span class="cur">中文</span>/<span>EN</span>
+      </div>
+    </header>
+    <script>
+
+    $('.nav li.park, .menu').hover(function(){
+      $('.menu', this).stop().fadeIn(200)
+    },function() {
+      $('.menu', this).stop().fadeOut(200)
+    })
+
+    var debounce = function(idle, action) {
+      var last
+      return function() {
+        var ctx = this, args = arguments
+        clearTimeout(last)
+        last = setTimeout(function() {
+          action.apply(ctx, args)
+        }, idle)
+      }
+    }
+
+    window.addEventListener('scroll', debounce(50, function(e) {
+        var scrollY = 0
+        if (window.scrollY) {
+            scrollY = window.scrollY
+        } else {
+            scrollY = $(document).scrollTop()
+        }
+        if (scrollY < 50) {
+            return $('header').stop().slideDown('fast')
+        }
+        e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+        e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+        var direction = 'down'
+        if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+            direction = 'up'
+        }
+        if (e.target.scrollTopPosition > 0) {
+            if (direction === 'down') {
+                $('header').stop().slideUp('fast')
+            } else {
+                $('header').stop().slideDown('fast')
+            }
+        }
+    }))
+    </script>
+    <main id="education">
+        <div class="banner">
+            <div class="swiper-container banner-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="text">
+                            <!-- <img class="swiper-lazy lazyload" data-src="./images/fashion-activities_1.png" alt="" /> -->
+                            <div>
+                                <span>大众美学</span>
+                                <p>Mass Aesthetics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="swiper-slide">
+                        <img class="swiper-lazy lazyload" data-src="./images/fashion-activities_1.png" alt="" />
+                        <div class="text">
+                             <div>
+                                <span>大众美学</span>
+                                <p>Mass Aesthetics</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="module">
+                <div class="module-item">
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="./images/education_54.png" alt="" />
+                        </div>
+                        <p>拼布</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="./images/education_55.png" alt="" />
+                        </div>
+                        <p>传统旗袍</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="./images/education_56.png" alt="" />
+                        </div>
+                        <p>金工</p>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="./images/education_57.png" alt="" />
+                        </div>
+                        <p>京绣珠绣</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="./images/education_58.png" alt="" />
+                        </div>
+                        <p>中式常服</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>待续</span>
+                        </div>
+                        <p>待续</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="">关于我们</a></p>
+          <p><a href="">商标声明</a></p>
+          <p><a href="">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+    <script src="./js/lazysizes.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script>
+        $(function () {
+            var slideChild = $(".banner-swiper").find(".swiper-slide").length;
+            new Swiper($(".banner-swiper"), {
+                speed: 600,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                loop: slideChild > 1,
+                observer: true,
+                observeParents: true,
+                lazy: {
+                    loadPrevNext: true
+                },
+                // 如果需要前进后退按钮
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

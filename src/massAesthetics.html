@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>大众美学</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="@@webRoot/css/common.css" />
+    <link rel="stylesheet" href="@@webRoot/css/swiper.css" />
+    <link rel="stylesheet" href="@@webRoot/css/education.css" />
+</head>
+
+<body>
+    @@include('@@webRoot/template/loading.html')
+    @@include('@@webRoot/template/header.html', {"active": "fashionEducation"})
+    <main id="education">
+        <div class="banner">
+            <div class="swiper-container banner-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="text">
+                            <!-- <img class="swiper-lazy lazyload" data-src="@@webRoot/images/fashion-activities_1.png" alt="" /> -->
+                            <div>
+                                <span>大众美学</span>
+                                <p>Mass Aesthetics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="swiper-slide">
+                        <img class="swiper-lazy lazyload" data-src="@@webRoot/images/fashion-activities_1.png" alt="" />
+                        <div class="text">
+                             <div>
+                                <span>大众美学</span>
+                                <p>Mass Aesthetics</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="module">
+                <div class="module-item">
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="@@webRoot/images/education_54.png" alt="" />
+                        </div>
+                        <p>拼布</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="@@webRoot/images/education_55.png" alt="" />
+                        </div>
+                        <p>传统旗袍</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="@@webRoot/images/education_56.png" alt="" />
+                        </div>
+                        <p>金工</p>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="@@webRoot/images/education_57.png" alt="" />
+                        </div>
+                        <p>京绣珠绣</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img class="lazyload" data-src="@@webRoot/images/education_58.png" alt="" />
+                        </div>
+                        <p>中式常服</p>
+                    </div>
+                    <div>
+                        <div>
+                            <span>待续</span>
+                        </div>
+                        <p>待续</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    @@include('@@webRoot/template/footer.html')
+    <script src="@@webRoot/js/lazysizes.min.js"></script>
+    <script src="@@webRoot/js/jquery.min.js"></script>
+    <script src="@@webRoot/js/swiper.min.js"></script>
+    <script>
+        $(function () {
+            var slideChild = $(".banner-swiper").find(".swiper-slide").length;
+            new Swiper($(".banner-swiper"), {
+                speed: 600,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                loop: slideChild > 1,
+                observer: true,
+                observeParents: true,
+                lazy: {
+                    loadPrevNext: true
+                },
+                // 如果需要前进后退按钮
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
