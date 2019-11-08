@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>产业园</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/swiper.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/industrial_park.css" />
+    <script src="./js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
+      </div>
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+      document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
+      }
+    </script>
+ <header>
+  <ul class="nav visible">
+     
+       <li class="park active">
+        <a>国内园区</a>
+        <div class="menu">
+          <ul>
+            <li><a href="./industrialPark-BJ.html">北京园区</a></li>
+            <li><a href="./industrialPark-RC.html">容城园区</a></li>
+            <li><a href="./industrialPark-CF.html">晨风园区</a></li>
+            <li><a href="./industrialPark-HN.html">海宁园区</a></li>
+            <li><a href="./industrialPark-QD.html">青岛园区</a></li>
+            <li><a href="./industrialPark-XC.html">兴城园区</a></li>
+          </ul>
+        </div>
+      </li>
+     
+    <li ><a href="./mainBusiness.html">主要业务</a></li>
+    <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+    <li ><a href="./latestNews.html">最新动态</a></li>
+    <li ><a href="./aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
+    </li>
+  </ul>
+</header>
+<script>
+$('.nav li.park, .menu').hover(function(){
+  $('.menu', this).stop().fadeIn(200)
+},function() {
+  $('.menu', this).stop().fadeOut(200)
+})
+
+var debounce = function(idle, action) {
+  var last
+  return function() {
+    var ctx = this, args = arguments
+    clearTimeout(last)
+    last = setTimeout(function() {
+      action.apply(ctx, args)
+    }, idle)
+  }
+}
+window.addEventListener('scroll', debounce(50, function(e) {
+    var scrollY = 0
+    if (window.scrollY) {
+        scrollY = window.scrollY
+    } else {
+        scrollY = $(document).scrollTop()
+    }
+    if (scrollY < 50) {
+        return $('header .nav').addClass('visible')
+    }
+    e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+    e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+    var direction = 'down'
+    if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+        direction = 'up'
+    }
+    if (e.target.scrollTopPosition > 0) {
+        if (direction === 'down') {
+          $('header .nav').removeClass('visible')
+        } else {
+          $('header .nav').addClass('visible')
+        }
+    }
+}))
+</script>
+    <main id="industrial-park">
+      <div class="banner bj-banner">
+        <div class="bj-banner-text">
+          <span
+            ><i></i><strong>北服<br />创新园</strong></span
+          >
+        </div>
+      </div>
+      <div class="content-wrap">
+        <div class="introduction">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>园区简介</em></h3>
+          <p>
+            牡丹园园区是北服创新园在京总部，目标建设成3.0版北服创新园范本。结合首都特色、海淀文化，深化产教融合，全 力打造以资源开放共享为核心的服饰时尚设计全产业链生态圈和充满活力的时尚人才聚集地。同时，作为北京服装学 院重要的产学研基地和成果转化中心 ，
+            北服创新园牡丹园园区将构建首都时尚创意企业孵化基地、创新创业生态园和 时尚产业新地标，全面带动国际化时尚设计教育的转型升级。未来将充分发挥总部的核心作用，搭建北服创新园全国 分园资源信息平台，国际人才工作站、海淀区文创产业先锋。
+          </p>
+        </div>
+        <div class="base-info">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>基本信息</em></h3>
+          <div class="info">
+            <div class="left-info">
+              <div>
+                <span>城市</span>
+                <p>北京市</p>
+              </div>
+              <div>
+                <span>地址</span>
+                <p>北京市海淀区花园北路29号</p>
+              </div>
+              <div>
+                <span>面积</span>
+                <p></p>
+              </div>
+              <div>
+                <span>合作单位</span>
+                <p></p>
+              </div>
+            </div>
+            <div class="right-info">
+              <div>
+                <span>联系人</span>
+                <p>刘存</p>
+              </div>
+              <div>
+                <span>联系电话</span>
+                <p>18519190731</p>
+              </div>
+              <div>
+                <span>联系邮箱</span>
+                <p>biftbj @ biftpark . com</p>
+              </div>
+              <div>
+                <span>联系微信</span>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="supporting-resources">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>配套资源</em></h3>
+          <div class="resourse-list">
+            <div>
+              <img src="./images/zcsb.png" alt="" />
+              <p>政策申报</p>
+            </div>
+            <div>
+              <img src="./images/sbdl.png" alt="" />
+              <p>社保代理</p>
+            </div>
+            <div>
+              <img src="./images/zscq.png" alt="" />
+              <p>知识产权</p>
+            </div>
+            <div>
+              <img src="./images/cyfh.png" alt="" />
+              <p>创业孵化</p>
+            </div>
+            <div>
+              <img src="./images/flzx.png" alt="" />
+              <p>法律咨询</p>
+            </div>
+            <div>
+              <img src="./images/gsfw.png" alt="" />
+              <p>工商服务</p>
+            </div>
+            <div>
+              <img src="./images/sjsgzs.png" alt="" />
+              <p>设计师工作室</p>
+            </div>
+            <div>
+              <img src="./images/msd.png" alt="" />
+              <p>买手店</p>
+            </div>
+            <div>
+              <img src="./images/sjjs.png" alt="" />
+              <p>设计教室</p>
+            </div>
+            <div>
+              <img src="./images/cygf.png" alt="" />
+              <p>创意工坊</p>
+            </div>
+            <div>
+              <img src="./images/xc.png" alt="" />
+              <p>秀场</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-display">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>空间展示</em></h3>
+          <div class="display-content-box">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./images/beijing-space1.png" /></div>
+                <div class="swiper-slide"><img src="./images/beijing-space2.png" /></div>
+                <div class="swiper-slide"><img src="./images/beijing-space3.png" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="qualification">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>园区资质</em></h3>
+          <div class="academic-swiper-box">
+            <div class="swiper-container academic-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu1.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu2.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu3.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu4.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu5.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu6.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu7.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu8.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu9.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu10.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu11.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu12.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy lazyload" data-src="./images/bj-zhengshu13.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="academic-swiper-prev"><img src="./images/park-left.png" alt="" /></div>
+            <div class="academic-swiper-next"><img src="./images/park-right.png" alt="" /></div>
+          </div>
+        </div>
+        <div class="plan-img">
+          <img src="./images/bj-plan.png" alt="" />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="">关于我们</a></p>
+          <p><a href="">商标声明</a></p>
+          <p><a href="">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+    <script src="./js/swiper.min.js"></script>
+    <script>
+      new Swiper(".display-content-box .swiper-container", {
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        effect: "coverflow",
+        grabCursor: true,
+        slidesPerView: 2,
+        loop: true,
+        centeredSlides: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 50,
+          modifier: 3
+        }
+      });
+      var academic_swiper = new Swiper($(".academic-swiper"), {
+        speed: 600,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        loop: true,
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        observer: true,
+        observeParents: true,
+        lazy: {
+          loadPrevNext: true
+        },
+        on: {
+          resize: function() {
+            academic_swiper.update();
+          }
+        }
+      });
+      $(".academic-swiper-prev").on("click", function() {
+        academic_swiper.slidePrev();
+      });
+      $(".academic-swiper-next").on("click", function() {
+        academic_swiper.slideNext();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>产业园</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/industrial_park.css" />
+    <script src="./js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
+      </div>
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+      document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
+      }
+    </script>
+ <header>
+  <ul class="nav visible">
+     
+       <li class="park active">
+        <a>国内园区</a>
+        <div class="menu">
+          <ul>
+            <li><a href="./industrialPark-BJ.html">北京园区</a></li>
+            <li><a href="./industrialPark-RC.html">容城园区</a></li>
+            <li><a href="./industrialPark-CF.html">晨风园区</a></li>
+            <li><a href="./industrialPark-HN.html">海宁园区</a></li>
+            <li><a href="./industrialPark-QD.html">青岛园区</a></li>
+            <li><a href="./industrialPark-XC.html">兴城园区</a></li>
+          </ul>
+        </div>
+      </li>
+     
+    <li ><a href="./mainBusiness.html">主要业务</a></li>
+    <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+    <li ><a href="./latestNews.html">最新动态</a></li>
+    <li ><a href="./aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
+    </li>
+  </ul>
+</header>
+<script>
+$('.nav li.park, .menu').hover(function(){
+  $('.menu', this).stop().fadeIn(200)
+},function() {
+  $('.menu', this).stop().fadeOut(200)
+})
+
+var debounce = function(idle, action) {
+  var last
+  return function() {
+    var ctx = this, args = arguments
+    clearTimeout(last)
+    last = setTimeout(function() {
+      action.apply(ctx, args)
+    }, idle)
+  }
+}
+window.addEventListener('scroll', debounce(50, function(e) {
+    var scrollY = 0
+    if (window.scrollY) {
+        scrollY = window.scrollY
+    } else {
+        scrollY = $(document).scrollTop()
+    }
+    if (scrollY < 50) {
+        return $('header .nav').addClass('visible')
+    }
+    e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+    e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+    var direction = 'down'
+    if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+        direction = 'up'
+    }
+    if (e.target.scrollTopPosition > 0) {
+        if (direction === 'down') {
+          $('header .nav').removeClass('visible')
+        } else {
+          $('header .nav').addClass('visible')
+        }
+    }
+}))
+</script>
+    <main id="industrial-park">
+      <div class="banner">
+        <div class="building-box">
+          <div class="fake-nav"></div>
+          <div class="building">
+            <span><i></i><strong>XC</strong></span>
+            <div>北服创新园丨兴城</div>
+            <img src="./images/build.svg" alt="" />
+            <p>建设中... 敬请期待</p>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrap">
+        <div class="introduction">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>园区简介</em></h3>
+          <p>
+            于2019年8月签订合同，园区占地4666平方米，其服务内容有：展示中心集中展示兴城城市文化和兴城泳装区域品牌、 国家级制版中心依托大数据产业发展及北京服装学院产业技术研究成果为泳装企业提供快速制版、全球培训中心全方
+            位提升兴城泳装产业从业者知识储备及实战能力、泳装时尚发布中心，兴城泳装产业趋势发声地、全生产链企业公共 服务平台通过搭建创新发展的综合平台体系推动兴城本土品牌发展加大服务力度推动设计资源对接，兴城泳装标准体 系建设，搭建时尚品牌聚集平台。
+          </p>
+        </div>
+        <div class="base-info">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>基本信息</em></h3>
+          <div class="info">
+            <div class="left-info">
+              <div>
+                <span>城市</span>
+                <p>兴城市</p>
+              </div>
+              <div>
+                <span>地址</span>
+                <p>辽宁省葫芦岛市兴城市兴东路比基尼博览中心A2楼</p>
+              </div>
+              <div>
+                <span>面积</span>
+                <p>4666M²</p>
+              </div>
+              <div>
+                <span>合作单位</span>
+                <p></p>
+              </div>
+            </div>
+            <div class="right-info">
+              <div>
+                <span>联系人</span>
+                <p>郭玲玲</p>
+              </div>
+              <div>
+                <span>联系电话</span>
+                <p>18611192408</p>
+              </div>
+              <div>
+                <span>联系邮箱</span>
+                <p>biftxc @ biftpark . com</p>
+              </div>
+              <div>
+                <span>联系微信</span>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="supporting-resources">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>配套资源</em></h3>
+          <div class="resourse-list">
+            <div>
+              <img src="./images/sjsgzs.png" alt="" />
+              <p>设计师工作室</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-display">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>空间展示</em></h3>
+          <div class="display-box">
+            <div class="building">
+              <span><i></i><strong>XC</strong></span>
+              <img src="./images/build.svg" alt="" />
+              <p>建设中... 敬请期待</p>
+            </div>
+          </div>
+        </div>
+        <div class="plan">
+          <div class="building">
+            <span><i></i><strong>XC</strong></span>
+            <img src="./images/build.svg" alt="" />
+            <p>建设中... 敬请期待</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="">关于我们</a></p>
+          <p><a href="">商标声明</a></p>
+          <p><a href="">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

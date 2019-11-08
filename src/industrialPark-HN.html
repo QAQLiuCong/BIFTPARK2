@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>产业园</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="@@webRoot/css/swiper.css" />
+    <link rel="stylesheet" href="@@webRoot/css/common.css" />
+    <link rel="stylesheet" href="@@webRoot/css/industrial_park.css" />
+    <script src="@@webRoot/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    @@include('@@webRoot/template/loading.html') @@include('@@webRoot/template/header.html', {"active": "park"})
+    <main id="industrial-park">
+      <div class="banner hn-banner">
+        <div class="text">
+          <span><i></i><strong>HN</strong></span>
+          <div>北服创新园丨海宁</div>
+        </div>
+      </div>
+      <div class="content-wrap">
+        <div class="introduction">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>园区简介</em></h3>
+          <p>
+            北京服装学院海宁时尚产业园，由北京服装学院、海宁市人民政府，海宁中国皮革城，以北京服装学院和世家皮草（ SAGA FURS）联合为基础，协同海宁皮革皮草（服装）产业资源，开展皮革皮草（服装）设计人才、品牌等人才的教
+            育和培养，致力打造中国及世界皮革皮草（服装）高级人才的“培养基地”。建设成为特色突出、优势明显、产学研 高度融合、具有国际领先水平的以皮草为特色的时尚教育和研发基地。是北京服装学院发展校地合作与国际合作之重 要成果，同时助力海宁服装产业转型升级与创新发展。
+          </p>
+        </div>
+        <div class="base-info">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>基本信息</em></h3>
+          <div class="info">
+            <div class="left-info">
+              <div>
+                <span>城市</span>
+                <p>海宁市</p>
+              </div>
+              <div>
+                <span>地址</span>
+                <p>浙江省海宁市海洲街道品牌风尚中心F11栋</p>
+              </div>
+              <div>
+                <span>面积</span>
+                <p>2500M²</p>
+              </div>
+              <div>
+                <span>合作单位</span>
+                <p></p>
+              </div>
+            </div>
+            <div class="right-info">
+              <div>
+                <span>联系人</span>
+                <p>刘婷</p>
+              </div>
+              <div>
+                <span>联系电话</span>
+                <p>13521388784</p>
+              </div>
+              <div>
+                <span>联系邮箱</span>
+                <p>bifthn @ biftpark . com</p>
+              </div>
+              <div>
+                <span>联系微信</span>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="supporting-resources">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>配套资源</em></h3>
+          <div class="resourse-list">
+            <div>
+              <img src="@@webRoot/images/sjsgzs.png" alt="" />
+              <p>设计师工作室</p>
+            </div>
+            <div>
+              <img src="@@webRoot/images/pcbf.png" alt="" />
+              <p>皮草板房</p>
+            </div>
+            <div>
+              <img src="@@webRoot/images/sjjs.png" alt="" />
+              <p>设计教室</p>
+            </div>
+            <div>
+              <img src="@@webRoot/images/mflgc.png" alt="" />
+              <p>面辅料工厂</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-display">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>空间展示</em></h3>
+          <div class="display-content-box">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="@@webRoot/images/haining-space1.png" /></div>
+                <div class="swiper-slide"><img src="@@webRoot/images/haining-space2.png" /></div>
+                <div class="swiper-slide"><img src="@@webRoot/images/haining-space3.png" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plan-img">
+          <img src="@@webRoot/images/haining-plan.png" alt="" />
+        </div>
+      </div>
+    </main>
+    @@include('@@webRoot/template/footer.html')
+    <script src="@@webRoot/js/swiper.min.js"></script>
+    <script>
+      new Swiper(".display-content-box .swiper-container", {
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        effect: "coverflow",
+        grabCursor: true,
+        slidesPerView: 2,
+        loop: true,
+        centeredSlides: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100.1,
+          modifier: 6
+        }
+      });
+    </script>
+  </body>
+</html>

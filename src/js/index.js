@@ -1,43 +1,86 @@
 $(function() {
-  index_init.calcBanner();
-  index_init.swiper_init();
+  banner_swiper_init();
+  park_swiper();
   slider_init();
 });
 
-// 窗口调整
+zoomSlider();
 $(window).resize(function() {
-  index_init.calcBanner();
+  zoomSlider();
 });
 
-var index_init = {
-  swiper_init: function() {
-    new Swiper(".swiper-container", {
-      autoplay: {
-        delay: 3000,
-        stopOnLastSlide: false,
-        disableOnInteraction: false
-      },
-      loop: true, // 循环模式选项
-      observer: true,
-      observeParents: true,
-      lazy: {
-        loadPrevNext: true
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      }
-    });
-  },
-  // 计算banner高度
-  calcBanner: function() {
-    var headerH = document.querySelector("header").offsetHeight;
-    var winH = $(window).height();
-    $(".index-banner").height(winH - headerH);
-  }
-};
+function banner_swiper_init() {
+  new Swiper(".banner-swiper", {
+    autoplay: {
+      delay: 3000,
+      stopOnLastSlide: false,
+      disableOnInteraction: false
+    },
+    loop: true, // 循环模式选项
+    observer: true,
+    observeParents: true,
+    lazy: {
+      loadPrevNext: true
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    }
+  });
+}
 
-var slider_init = function() {
+// 园区轮播banner
+function park_swiper() {
+  var parkSwiper = new Swiper(".park-swiper", {
+    autoplay: {
+      delay: 3000,
+      stopOnLastSlide: false,
+      disableOnInteraction: false
+    },
+    initialSlide: 0,
+    observer: true,
+    observeParents: true,
+    lazy: {
+      loadPrevNext: true
+    },
+    on: {
+      slideChangeTransitionStart: function() {
+        $(".park-swiper-thumbs > div")
+          .eq(this.activeIndex)
+          .addClass("active")
+          .siblings()
+          .removeClass("active");
+      }
+    }
+  });
+  $(".park-swiper-thumbs").on("click", "> div", function() {
+    var index = $(this).index();
+    parkSwiper.slideTo(index);
+  });
+  $(".park-arrow.left").on("click", function() {
+    if (parkSwiper.activeIndex === 0) {
+      var len = $(".park-swiper-thumbs").children().length;
+      parkSwiper.slideTo(len - 1);
+      return;
+    }
+    parkSwiper.slidePrev();
+  });
+  $(".park-arrow.right").on("click", function() {
+    var len = $(".park-swiper-thumbs").children().length;
+    if (parkSwiper.activeIndex === len - 1) {
+      parkSwiper.slideTo(0);
+      return;
+    }
+    parkSwiper.slideNext();
+  });
+}
+
+// 缩放slider 轮播
+function zoomSlider() {
+  $(".slider-box").css("zoom", "calc(" + $(window).width() + "/ 1920)");
+}
+
+function slider_init() {
   var jssor_1_options = {
     $AutoPlay: "on" == "on", //自动播放
     $FillMode: 4,
@@ -61,35 +104,5 @@ var slider_init = function() {
       $ActionMode: "1"
     }
   };
-  var slide = new $JssorSlider$("introduction-slide", jssor_1_options);
-  var MAX_WIDTH = 800;
-
-  function ScaleSlider() {
-    var containerElement = slide.$Elmt.parentNode;
-    var containerWidth = containerElement.clientWidth;
-    var containerHeight = containerElement.clientHeight;
-    if (containerWidth || containerHeight) {
-      var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-      var expectedHeight = Math.min(containerHeight, containerHeight);
-      slide.$ScaleWidth(expectedWidth);
-      slide.$ScaleWidth(expectedHeight);
-      $("#introduction-slide > div > div").css("transform", "scale(1)");
-      $("#introduction-slide").width($(".slider-box").width());
-      $("#introduction-slide").height($(".slider-box").height());
-      $(".w-slider-wrap").each(function () {
-        $(this)
-      });
-      $(".w-slider-wrap > div:first").css('width', "100%!important");
-      $(".w-slider-wrap > div:first").css("height", "100%!important");
-      // $("#introduction-slide > div > div").css("transform");
-      console.log($("#introduction-slide > div > div").css("transform", "scale(1)"));
-    } else {
-      window.setTimeout(ScaleSlider, 30);
-    }
-  }
-  ScaleSlider();
-
-  $Jssor$.$AddEvent(window, "load", ScaleSlider);
-  $Jssor$.$AddEvent(window, "resize", ScaleSlider);
-  $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-};
+  new $JssorSlider$("introduction-slide", jssor_1_options);
+}

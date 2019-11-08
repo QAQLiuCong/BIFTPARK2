@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>产业园</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/industrial_park.css" />
+    <script src="./js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
+      </div>
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+      document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
+      }
+    </script>
+ <header>
+  <ul class="nav visible">
+     
+       <li class="park active">
+        <a>国内园区</a>
+        <div class="menu">
+          <ul>
+            <li><a href="./industrialPark-BJ.html">北京园区</a></li>
+            <li><a href="./industrialPark-RC.html">容城园区</a></li>
+            <li><a href="./industrialPark-CF.html">晨风园区</a></li>
+            <li><a href="./industrialPark-HN.html">海宁园区</a></li>
+            <li><a href="./industrialPark-QD.html">青岛园区</a></li>
+            <li><a href="./industrialPark-XC.html">兴城园区</a></li>
+          </ul>
+        </div>
+      </li>
+     
+    <li ><a href="./mainBusiness.html">主要业务</a></li>
+    <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+    <li ><a href="./latestNews.html">最新动态</a></li>
+    <li ><a href="./aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
+    </li>
+  </ul>
+</header>
+<script>
+$('.nav li.park, .menu').hover(function(){
+  $('.menu', this).stop().fadeIn(200)
+},function() {
+  $('.menu', this).stop().fadeOut(200)
+})
+
+var debounce = function(idle, action) {
+  var last
+  return function() {
+    var ctx = this, args = arguments
+    clearTimeout(last)
+    last = setTimeout(function() {
+      action.apply(ctx, args)
+    }, idle)
+  }
+}
+window.addEventListener('scroll', debounce(50, function(e) {
+    var scrollY = 0
+    if (window.scrollY) {
+        scrollY = window.scrollY
+    } else {
+        scrollY = $(document).scrollTop()
+    }
+    if (scrollY < 50) {
+        return $('header .nav').addClass('visible')
+    }
+    e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+    e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+    var direction = 'down'
+    if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+        direction = 'up'
+    }
+    if (e.target.scrollTopPosition > 0) {
+        if (direction === 'down') {
+          $('header .nav').removeClass('visible')
+        } else {
+          $('header .nav').addClass('visible')
+        }
+    }
+}))
+</script>
+    <main id="industrial-park">
+      <div class="banner">
+        <div class="building-box">
+          <div class="fake-nav"></div>
+          <div class="building">
+            <span><i></i><strong>QD</strong></span>
+            <div>北服创新园丨青岛</div>
+            <img src="./images/build.svg" alt="" />
+            <p>建设中... 敬请期待</p>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrap">
+        <div class="introduction">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>园区简介</em></h3>
+          <p>
+            北服青岛时尚产业园是由青岛市市南区人民政府、北京服装学院和青岛市教育局合作共建，计划于2020年5月投入运 营。产业园位于青岛标志性建筑栈桥对面，地上六层、地下两层共22080㎡。园区打造北服青岛研究生及人才培养基
+            地，涵盖学历生教育及职业培训，开展时尚设计、工艺、陈列、传播等培训，打造青岛时尚产业高级人才的培养基 地；建设北服青岛时尚产业园，聚集并孵化国内外高端专业类时尚设计师，研发设计产品、举办多种时尚活动；成
+            立北服青岛中国时尚研究院，对当地时尚产业进行研究分析，发布中国时尚产业研究报告，为青岛打造时尚国际都市提供智力支持。
+          </p>
+        </div>
+        <div class="base-info">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>基本信息</em></h3>
+          <div class="info">
+            <div class="left-info">
+              <div>
+                <span>城市</span>
+                <p>青岛市</p>
+              </div>
+              <div>
+                <span>地址</span>
+                <p>山东省青岛市市南区太平路66号</p>
+              </div>
+              <div>
+                <span>面积</span>
+                <p>2500M²</p>
+              </div>
+              <div>
+                <span>合作单位</span>
+                <p></p>
+              </div>
+            </div>
+            <div class="right-info">
+              <div>
+                <span>联系人</span>
+                <p>吴昊若</p>
+              </div>
+              <div>
+                <span>联系电话</span>
+                <p>15652799903</p>
+              </div>
+              <div>
+                <span>联系邮箱</span>
+                <p>biftqd @ biftpark . com</p>
+              </div>
+              <div>
+                <span>联系微信</span>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="supporting-resources">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>配套资源</em></h3>
+          <div class="resourse-list">
+            <div>
+              <img src="./images/sjsgzs.png" alt="" />
+              <p>设计师工作室</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-display">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>空间展示</em></h3>
+          <div class="display-box">
+            <div class="building">
+              <span><i></i><strong>QD</strong></span>
+              <img src="./images/build.svg" alt="" />
+              <p>建设中... 敬请期待</p>
+            </div>
+          </div>
+        </div>
+        <div class="plan">
+          <div class="building">
+            <span><i></i><strong>QD</strong></span>
+            <img src="./images/build.svg" alt="" />
+            <p>建设中... 敬请期待</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="">关于我们</a></p>
+          <p><a href="">商标声明</a></p>
+          <p><a href="">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>产业园</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/swiper.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/industrial_park.css" />
+    <script src="./js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
+      </div>
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+      document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
+      }
+    </script>
+ <header>
+  <ul class="nav visible">
+     
+       <li class="park active">
+        <a>国内园区</a>
+        <div class="menu">
+          <ul>
+            <li><a href="./industrialPark-BJ.html">北京园区</a></li>
+            <li><a href="./industrialPark-RC.html">容城园区</a></li>
+            <li><a href="./industrialPark-CF.html">晨风园区</a></li>
+            <li><a href="./industrialPark-HN.html">海宁园区</a></li>
+            <li><a href="./industrialPark-QD.html">青岛园区</a></li>
+            <li><a href="./industrialPark-XC.html">兴城园区</a></li>
+          </ul>
+        </div>
+      </li>
+     
+    <li ><a href="./mainBusiness.html">主要业务</a></li>
+    <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+    <li ><a href="./latestNews.html">最新动态</a></li>
+    <li ><a href="./aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
+    </li>
+  </ul>
+</header>
+<script>
+$('.nav li.park, .menu').hover(function(){
+  $('.menu', this).stop().fadeIn(200)
+},function() {
+  $('.menu', this).stop().fadeOut(200)
+})
+
+var debounce = function(idle, action) {
+  var last
+  return function() {
+    var ctx = this, args = arguments
+    clearTimeout(last)
+    last = setTimeout(function() {
+      action.apply(ctx, args)
+    }, idle)
+  }
+}
+window.addEventListener('scroll', debounce(50, function(e) {
+    var scrollY = 0
+    if (window.scrollY) {
+        scrollY = window.scrollY
+    } else {
+        scrollY = $(document).scrollTop()
+    }
+    if (scrollY < 50) {
+        return $('header .nav').addClass('visible')
+    }
+    e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+    e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+    var direction = 'down'
+    if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+        direction = 'up'
+    }
+    if (e.target.scrollTopPosition > 0) {
+        if (direction === 'down') {
+          $('header .nav').removeClass('visible')
+        } else {
+          $('header .nav').addClass('visible')
+        }
+    }
+}))
+</script>
+    <main id="industrial-park">
+      <div class="banner cf-banner">
+        <div class="text">
+          <span><i></i><strong>CF</strong></span>
+          <div>北服创新园丨晨风</div>
+        </div>
+      </div>
+      <div class="content-wrap">
+        <div class="introduction">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>园区简介</em></h3>
+          <p>
+            于2017年6月投入运营，园区占地25000平米。服务内容：园区建有1000平米设计研发中心，涵盖中国针织服装设计研 发中心（中国针织工业协会授牌）、梭织服装设计研发中心、皮具箱包设计研发中心及专业特种设备，使设计师和企
+            业在产品研发中的效率、品质和成本得到优化；1000平米专业教学区，服务于北京服装学院及其他院校的实践教学及 创新创业工作，开展多元化的有关服装服饰设计，技术和商业方面的培训课程，培养产业需要的实践性人才；5000平
+            米设计工作室，可满足30个品牌办公及创业。园区依托北京服装学院的核心资源和特色学科与其在时尚产业的龙头地位，打造以资源开放为核心的服饰时尚设计全产业链生态圈，构建引领时尚产业发展的创新创业生态园。
+          </p>
+        </div>
+        <div class="base-info">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>基本信息</em></h3>
+          <div class="info">
+            <div class="left-info">
+              <div>
+                <span>城市</span>
+                <p>昆山市</p>
+              </div>
+              <div>
+                <span>地址</span>
+                <p>江苏昆山晨风路8号</p>
+              </div>
+              <div>
+                <span>面积</span>
+                <p>22000M²</p>
+              </div>
+              <div>
+                <span>合作单位</span>
+                <p>晨风集团</p>
+              </div>
+            </div>
+            <div class="right-info">
+              <div>
+                <span>联系人</span>
+                <p>张霄鹏</p>
+              </div>
+              <div>
+                <span>联系电话</span>
+                <p>18115844852</p>
+              </div>
+              <div>
+                <span>联系邮箱</span>
+                <p>biftcf @ biftpark . com</p>
+              </div>
+              <div>
+                <span>联系微信</span>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="supporting-resources">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>配套资源</em></h3>
+          <div class="resourse-list">
+            <div>
+              <img src="./images/sjsgzs.png" alt="" />
+              <p>设计师工作室</p>
+            </div>
+            <div>
+              <img src="./images/fsbf.png" alt="" />
+              <p>服饰板房</p>
+            </div>
+            <div>
+              <img src="./images/pjbf.png" alt="" />
+              <p>皮具板房</p>
+            </div>
+            <div>
+              <img src="./images/sjjs.png" alt="" />
+              <p>设计教室</p>
+            </div>
+            <div>
+              <img src="./images/mflgc.png" alt="" />
+              <p>面辅料工厂</p>
+            </div>
+            <div>
+              <img src="./images/jczx.png" alt="" />
+              <p>检测中心</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-display">
+          <h3 class="title">BIFT PARK<span class="split"></span><em>空间展示</em></h3>
+          <div class="display-content-box">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./images/chenfeng-space1.png" /></div>
+                <div class="swiper-slide"><img src="./images/chenfeng-space2.png" /></div>
+                <div class="swiper-slide"><img src="./images/chenfeng-space3.png" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plan-img">
+          <img src="./images/chenfeng-plan.png" alt="" />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="">关于我们</a></p>
+          <p><a href="">商标声明</a></p>
+          <p><a href="">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+    <script src="./js/swiper.min.js"></script>
+    <script>
+      new Swiper(".display-content-box .swiper-container", {
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        effect: "coverflow",
+        grabCursor: true,
+        slidesPerView: 2,
+        loop: true,
+        centeredSlides: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 50,
+          modifier: 3
+        }
+      });
+    </script>
+  </body>
+</html>

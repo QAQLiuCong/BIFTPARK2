@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>首页</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/swiper.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
+      </div>
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+      document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
+      }
+    </script>
+ <header>
+  <ul class="nav visible">
+     
+    <li ><a href="./mainBusiness.html">主要业务</a></li>
+    <li class="active" type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+    <li ><a href="./latestNews.html">最新动态</a></li>
+    <li ><a href="./aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
+    </li>
+  </ul>
+</header>
+<script>
+$('.nav li.park, .menu').hover(function(){
+  $('.menu', this).stop().fadeIn(200)
+},function() {
+  $('.menu', this).stop().fadeOut(200)
+})
+
+var debounce = function(idle, action) {
+  var last
+  return function() {
+    var ctx = this, args = arguments
+    clearTimeout(last)
+    last = setTimeout(function() {
+      action.apply(ctx, args)
+    }, idle)
+  }
+}
+window.addEventListener('scroll', debounce(50, function(e) {
+    var scrollY = 0
+    if (window.scrollY) {
+        scrollY = window.scrollY
+    } else {
+        scrollY = $(document).scrollTop()
+    }
+    if (scrollY < 50) {
+        return $('header .nav').addClass('visible')
+    }
+    e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+    e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+    var direction = 'down'
+    if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+        direction = 'up'
+    }
+    if (e.target.scrollTopPosition > 0) {
+        if (direction === 'down') {
+          $('header .nav').removeClass('visible')
+        } else {
+          $('header .nav').addClass('visible')
+        }
+    }
+}))
+</script>
+    <main id="index">
+      <!-- banner -->
+      <div class="index-banner">
+        <div class="swiper-container banner-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="" />
+            </div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <!-- Introduction -->
+      <div class="introduction">
+        <div class="content">
+          北京服装学院服饰时尚设计产业创新园（简称北 服创新园）是北京服装学院积极融入产业，实践 服务产业发展理念的重要举措。自2012年成立以 来，已经陆续在北京朝阳、雄安、容城、江苏昆 山和浙江海宁建成四座特色园区，并有北京海淀、 山东青岛和辽宁兴城三座在建园区，总运营面积 超过85000㎡。
+        </div>
+        <div class="img">
+          <div class="slider-box">
+            <!--w-slide-->
+            <div class="w-slider" id="introduction-slide">
+              <div class="w-slider-wrap" data-u="slides">
+                <!-- <div>
+                  <a href="" target="_self" class="w-imgauto">
+                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2819633.jpg" alt="品牌集合" title="品牌集合" class="CutFill" />
+                  </a>
+                </div> -->
+                <div>
+                  <img data-u="image" src="./images/001.jpg" alt="易初风尚" title="易初风尚" class="CutFill" />
+                </div>
+                <div>
+                  <img data-u="image" src="./images/002.jpg" alt="野生" title="野生" class="CutFill" />
+                </div>
+                <div>
+                  <img data-u="image" src="./images/003.jpg" alt="信玺" title="信玺" class="CutFill" />
+                </div>
+              </div>
+              <!-- Arrow Navigator -->
+              <span data-u="arrowleft" class="w-point-left" data-autocenter="2">
+                <i></i>
+              </span>
+              <span data-u="arrowright" class="w-point-right" data-autocenter="2">
+                <i></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- split-line -->
+      <div class="split-line">
+        <span>活力<i></i>美丽<i></i>价值</span>
+      </div>
+      <!-- plan -->
+      <div class="plan-box">
+        
+      </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="">关于我们</a></p>
+          <p><a href="">商标声明</a></p>
+          <p><a href="">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+    <script src="./js/swiper.min.js"></script>
+  </body>
+</html>

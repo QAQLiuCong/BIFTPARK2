@@ -11,89 +11,104 @@
     <script src="./js/jquery.min.js"></script>
   </head>
 
-  
   <body>
-    <header>
-      <ul class="nav">
-        <li  class="park">
-          <a>国内园区</a>
-          <div class="menu">
-            <ul>
-              <li><a href="">北京园区</a></li>
-              <li><a href="">容城园区</a></li>
-              <li><a href="">晨风园区</a></li>
-              <li><a href="">海宁园区</a></li>
-              <li><a href="">青岛园区</a></li>
-              <li><a href="">兴城园区</a></li>
-            </ul>
-          </div>
-        </li>
-        <li ><a href="./fashionActivities.html">主要业务</a></li>
-        <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
-        <li ><a href="./characteristicService.html">最新动态</a></li>
-        <li ><a href="./aboutUs.html">关于我们</a></li>
-      </ul>
-      <div class="language">
-        <span class="cur">中文</span>/<span>EN</span>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
       </div>
-    </header>
-    <script>
-
-    $('.nav li.park, .menu').hover(function(){
-      $('.menu', this).stop().fadeIn(200)
-    },function() {
-      $('.menu', this).stop().fadeOut(200)
-    })
-
-    var debounce = function(idle, action) {
-      var last
-      return function() {
-        var ctx = this, args = arguments
-        clearTimeout(last)
-        last = setTimeout(function() {
-          action.apply(ctx, args)
-        }, idle)
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+      document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
       }
-    }
-
-    window.addEventListener('scroll', debounce(50, function(e) {
-        var scrollY = 0
-        if (window.scrollY) {
-            scrollY = window.scrollY
-        } else {
-            scrollY = $(document).scrollTop()
-        }
-        if (scrollY < 50) {
-            $('header').css('position', 'relative')
-            return $('header').stop().slideDown('fast')
-        }
-        e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
-        e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
-        var direction = 'down'
-        if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
-            direction = 'up'
-        }
-        console.log(direction)
-        if (e.target.scrollTopPosition > 0) {
-            if (direction === 'down') {
-                $('header').stop().slideUp('fast')
-            } else {
-                $('header').css('position', 'fixed')
-                $('header').stop().slideDown('fast')
-            }
-        }
-    }))
     </script>
+ <header>
+  <ul class="nav visible">
+      <li  >
+        <a>国内园区</a>
+        <div class="menu">
+          <ul>
+            <li><a href="./industrialPark-BJ.html">北京园区</a></li>
+            <li><a href="./industrialPark-RC.html">容城园区</a></li>
+            <li><a href="./industrialPark-CF.html">晨风园区</a></li>
+            <li><a href="./industrialPark-HN.html">海宁园区</a></li>
+            <li><a href="./industrialPark-QD.html">青岛园区</a></li>
+            <li><a href="./industrialPark-XC.html">兴城园区</a></li>
+          </ul>
+        </div>
+      </li>
+    <li ><a href="./mainBusiness.html">主要业务</a></li>
+    <li class="active" type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+    <li ><a href="./latestNews.html">最新动态</a></li>
+    <li ><a href="./aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
+    </li>
+  </ul>
+</header>
+<script>
+$('.nav li:first, .menu').hover(function(){
+  $('.menu', this).stop().fadeIn(200)
+},function() {
+  $('.menu', this).stop().fadeOut(200)
+})
+
+var debounce = function(idle, action) {
+  var last
+  return function() {
+    var ctx = this, args = arguments
+    clearTimeout(last)
+    last = setTimeout(function() {
+      action.apply(ctx, args)
+    }, idle)
+  }
+}
+window.addEventListener('scroll', debounce(50, function(e) {
+    var scrollY = 0
+    if (window.scrollY) {
+        scrollY = window.scrollY
+    } else {
+        scrollY = $(document).scrollTop()
+    }
+    if (scrollY < 50) {
+        return $('header .nav').addClass('visible')
+    }
+    e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+    e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+    var direction = 'down'
+    if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+        direction = 'up'
+    }
+    if (e.target.scrollTopPosition > 0) {
+        if (direction === 'down') {
+          $('header .nav').removeClass('visible')
+        } else {
+          $('header .nav').addClass('visible')
+        }
+    }
+}))
+</script>
     <main id="index">
       <!-- banner -->
       <div class="index-banner">
-        <div class="swiper-container">
+        <div class="swiper-container banner-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="">
+              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="" />
             </div>
             <div class="swiper-slide">
-              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="">
+              <img class="swiper-lazy" data-src="./images/index-banner.png" alt="" />
             </div>
           </div>
           <!-- 如果需要分页器 -->
@@ -110,70 +125,195 @@
             <!--w-slide-->
             <div class="w-slider" id="introduction-slide">
               <div class="w-slider-wrap" data-u="slides">
-                <div>
+                <!-- <div>
                   <a href="" target="_self" class="w-imgauto">
                     <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2819633.jpg" alt="品牌集合" title="品牌集合" class="CutFill" />
                   </a>
+                </div> -->
+                <div>
+                  <img data-u="image" src="./images/001.jpg" alt="易初风尚" title="易初风尚" class="CutFill" />
                 </div>
                 <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820149.jpg" alt="王逢陈" title="王逢陈" class="CutFill" />
-                  </a>
+                  <img data-u="image" src="./images/002.jpg" alt="野生" title="野生" class="CutFill" />
                 </div>
                 <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820150.jpg" alt="王海震" title="王海震" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820152.jpg" alt="陈鹏" title="陈鹏" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820153.jpg" alt="CJYAO" title="CJYAO" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820151.jpg" alt="陈安琪" title="陈安琪" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820154.jpg" alt="夹生" title="夹生" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820158.jpg" alt="化米时尚" title="化米时尚" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820157.jpg" alt="易初风尚" title="易初风尚" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820156.jpg" alt="野生" title="野生" class="CutFill" />
-                  </a>
-                </div>
-                <div>
-                  <a href="" target="_self" class="w-imgauto">
-                    <img data-u="image" src="//nwzimg.wezhan.cn/contents/sitefiles2021/10109857/images/2820155.jpg" alt="信玺" title="信玺" class="CutFill" />
-                  </a>
+                  <img data-u="image" src="./images/003.jpg" alt="信玺" title="信玺" class="CutFill" />
                 </div>
               </div>
               <!-- Arrow Navigator -->
-              <span data-u="arrowleft" class="w-point-left slideArrow " style="top:0px;left:12px;" data-autocenter="2">
-                <i class="w-itemicon mw-iconfont">&#xb133;</i>
+              <span data-u="arrowleft" class="w-point-left" data-autocenter="2">
+                <i></i>
               </span>
-              <span data-u="arrowright" class="w-point-right slideArrow " style="top:0px;right:12px;" data-autocenter="2">
-                <i class="w-itemicon mw-iconfont">&#xb132;</i>
+              <span data-u="arrowright" class="w-point-right" data-autocenter="2">
+                <i></i>
               </span>
             </div>
+          </div>
+        </div>
+      </div>
+      <!-- split-line -->
+      <div class="split-line">
+        <span>活力<i></i>美丽<i></i>价值</span>
+      </div>
+      <!-- 园区 轮播 -->
+      <div class="index-park">
+        <div class="swiper-container park-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-lazy" style="background-image:url('./images/park001.png');">
+              <div class="content">
+                <h3><i></i>BJ</h3>
+                <p>北服北京时尚产业园</p>
+                <div class="text">简介简介简介简介简介简介简介简介简介简介简</div>
+              </div>
+              <a>了解更多分园区内容</a>
+            </div>
+            <div class="swiper-slide swiper-lazy" style="background-image:url('./images/rc-banner.png');">
+              <div class="content">
+                <h3><i></i>RC</h3>
+                <p>北服容城时尚产业园</p>
+                <div class="text">简介简介简介简介简介简介简介简介简介简介简 介简介简介简介简介简介简介简介简介简介简介</div>
+              </div>
+              <a>了解更多分园区内容</a>
+            </div>
+            <div class="swiper-slide swiper-lazy" style="background-image:url('./images/cf-banner.png');">
+              <div class="content">
+                <h3><i></i>CF</h3>
+                <p>北服晨风时尚产业园</p>
+                <div class="text">简介简介简介简介简介简介简 介简介简介简介简介简介简介简介简介简介简介</div>
+              </div>
+              <a>了解更多分园区内容</a>
+            </div>
+            <div class="swiper-slide swiper-lazy" style="background-image:url('./images/hn-banner.png');">
+              <div class="content">
+                <h3><i></i>HN</h3>
+                <p>北服海宁时尚产业园</p>
+                <div class="text">简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
+              </div>
+              <a>了解更多分园区内容</a>
+            </div>
+            <div class="swiper-slide swiper-lazy" style="background-image:url('./images/park001.png');">
+              <div class="content">
+                <h3><i></i>QD</h3>
+                <p>北服青岛时尚产业园</p>
+                <div class="text">简介简介简介简介简介简介简介</div>
+              </div>
+              <a>了解更多分园区内容</a>
+            </div>
+            <div class="swiper-slide swiper-lazy" style="background-image:url('./images/park001.png');">
+              <div class="content">
+                <h3><i></i>XC</h3>
+                <p>北服兴城时尚产业园</p>
+                <div class="text">简介简介简介简介简介简介简介简介介简介简介简介简介</div>
+              </div>
+              <a>了解更多分园区内容</a>
+            </div>
+          </div>
+        </div>
+        <div class="park-swiper-thumbs">
+          <div class="active">
+            <img src="./images/park-bj-thumb.png" alt="" />
+            <div class="name">
+              <h3><i></i>BJ</h3>
+              <p>北服北京时尚产业园</p>
+            </div>
+          </div>
+          <div>
+            <img src="./images/park-rc-thumb.png" alt="" />
+            <div class="name">
+              <h3><i></i>RC</h3>
+              <p>北服容城时尚产业园</p>
+            </div>
+          </div>
+          <div>
+            <img src="./images/park-cf-thumb.png" alt="" />
+            <div class="name">
+              <h3><i></i>CF</h3>
+              <p>北服晨风时尚产业园</p>
+            </div>
+          </div>
+          <div>
+            <img src="./images/park-hn-thumb.png" alt="" />
+            <div class="name">
+              <h3><i></i>HN</h3>
+              <p>北服海宁时尚产业园</p>
+            </div>
+          </div>
+          <div>
+            <img src="./images/park-qd-thumb.png" alt="" />
+            <div class="name">
+              <h3><i></i>QD</h3>
+              <p>北服青岛时尚产业园</p>
+            </div>
+          </div>
+          <div>
+            <img src="./images/park-xc-thumb.png" alt="" />
+            <div class="name">
+              <h3><i></i>XC</h3>
+              <p>北服兴城时尚产业园</p>
+            </div>
+          </div>
+        </div>
+        <span class="park-arrow left"><img src="./images/park-left.png" alt=""/></span>
+        <span class="park-arrow right"><img src="./images/park-right.png" alt=""/></span>
+      </div>
+      <!-- plan -->
+      <div class="plan-box">
+        <div class="left">
+          <div class="poster">
+            <img src="./images/index-plan1.png" alt="" />
+          </div>
+          <div class="desc">
+            <h3>设计师发展计划</h3>
+            <p>为设计师及时尚领域创业者的业务开拓、学习发展和交流合作提供支持。</p>
+          </div>
+        </div>
+        <div class="mid">
+          <div class="desc">
+            <h3>国际合作计划</h3>
+            <p>打造中国与世界时尚院校及机构进行产教融合和时尚交流的工作平台。</p>
+          </div>
+          <div class="poster">
+            <img src="./images/index-plan2.png" alt="" />
+          </div>
+        </div>
+        <div class="right">
+          <div class="desc">
+            <h3>产业服务计划</h3>
+            <p>汇聚教育及产业力量，为创新创业、产业升级和时尚城市建设提供精准的垂直服务。</p>
+          </div>
+          <div class="poster">
+            <img src="./images/index-plan3.png" alt="" />
+          </div>
+        </div>
+        <div class="right-logo">BIFT PARK</div>
+      </div>
+      <!-- News -->
+      <div class="latest-news">
+        <span class="title">最新动态</span>
+        <div class="news-list">
+          <div>
+            <h3>艺术秀展</h3>
+            <div>
+              <img src="./images/index-news1.png" alt="">
+              <p>非常美「暖·情」·再续非常美历程</p>
+            </div>
+            <a href="">了解更多</a>
+          </div>
+          <div>
+            <h3>交流学习</h3>
+            <div>
+              <img src="./images/index-news2.png" alt="">
+              <p>2018青岛世界大学生时尚设计大赛·时尚产教</p>
+            </div>
+            <a href="">了解更多</a>
+          </div>
+          <div>
+            <h3>通知公告</h3>
+            <div>
+              <img src="" alt="">
+              <p>企业代理服务竞争性谈判项目结果公示</p>
+            </div>
+            <a href="">了解更多</a>
           </div>
         </div>
       </div>

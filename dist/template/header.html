@@ -1,30 +1,29 @@
 <header>
-  <ul class="nav">
-    <li  class="park">
-      <a>国内园区</a>
-      <div class="menu">
-        <ul>
-          <li><a href="">北京园区</a></li>
-          <li><a href="">容城园区</a></li>
-          <li><a href="">晨风园区</a></li>
-          <li><a href="">海宁园区</a></li>
-          <li><a href="">青岛园区</a></li>
-          <li><a href="">兴城园区</a></li>
-        </ul>
-      </div>
+  <ul class="nav visible">
+      <li  >
+        <a>国内园区</a>
+        <div class="menu">
+          <ul>
+            <li><a href="../industrialPark-BJ.html">北京园区</a></li>
+            <li><a href="../industrialPark-RC.html">容城园区</a></li>
+            <li><a href="../industrialPark-CF.html">晨风园区</a></li>
+            <li><a href="../industrialPark-HN.html">海宁园区</a></li>
+            <li><a href="../industrialPark-QD.html">青岛园区</a></li>
+            <li><a href="../industrialPark-XC.html">兴城园区</a></li>
+          </ul>
+        </div>
+      </li>
+    <li ><a href="../mainBusiness.html">主要业务</a></li>
+    <li  type="logo"><a href="../index.html"><img src="../images/logo.svg" alt=""></a></li>
+    <li ><a href="../latestNews.html">最新动态</a></li>
+    <li ><a href="../aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
     </li>
-    <li ><a href="./fashionActivities.html">主要业务</a></li>
-    <li  type="logo"><a href="./index.html"><img src="../images/logo.svg" alt=""></a></li>
-    <li ><a href="./characteristicService.html">最新动态</a></li>
-    <li ><a href="./aboutUs.html">关于我们</a></li>
   </ul>
-  <div class="language">
-    <span class="cur">中文</span>/<span>EN</span>
-  </div>
 </header>
 <script>
-
-$('.nav li.park, .menu').hover(function(){
+$('.nav li:first, .menu').hover(function(){
   $('.menu', this).stop().fadeIn(200)
 },function() {
   $('.menu', this).stop().fadeOut(200)
@@ -40,7 +39,6 @@ var debounce = function(idle, action) {
     }, idle)
   }
 }
-
 window.addEventListener('scroll', debounce(50, function(e) {
     var scrollY = 0
     if (window.scrollY) {
@@ -49,8 +47,7 @@ window.addEventListener('scroll', debounce(50, function(e) {
         scrollY = $(document).scrollTop()
     }
     if (scrollY < 50) {
-        $('header').css('position', 'relative')
-        return $('header').stop().slideDown('fast')
+        return $('header .nav').addClass('visible')
     }
     e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
     e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
@@ -58,13 +55,11 @@ window.addEventListener('scroll', debounce(50, function(e) {
     if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
         direction = 'up'
     }
-    console.log(direction)
     if (e.target.scrollTopPosition > 0) {
         if (direction === 'down') {
-            $('header').stop().slideUp('fast')
+          $('header .nav').removeClass('visible')
         } else {
-            $('header').css('position', 'fixed')
-            $('header').stop().slideDown('fast')
+          $('header .nav').addClass('visible')
         }
     }
 }))
