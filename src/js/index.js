@@ -5,6 +5,7 @@ $(function() {
 });
 
 zoomSlider();
+
 $(window).resize(function() {
   zoomSlider();
 });
@@ -73,6 +74,14 @@ function park_swiper() {
     }
     parkSwiper.slideNext();
   });
+  $(".park-swiper").hover(
+    function() {
+      parkSwiper.autoplay.stop();
+    },
+    function() {
+      parkSwiper.autoplay.start();
+    }
+  );
 }
 
 // 缩放slider 轮播

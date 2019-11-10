@@ -1,0 +1,19 @@
+#aboutUs .video-container { height: calc(100vh - 1.07rem); }
+
+#aboutUs .video-container video { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
+
+#aboutUs .content { margin: 1.32rem 1rem 0.74rem; border: 0.05rem solid #eaeae5; position: relative; }
+
+#aboutUs .content .title { background: #fff; padding: 0 1.13rem; font-size: 0.4rem; letter-spacing: 5px; color: #8f8f86; line-height: 1; position: absolute; top: -0.215rem; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+
+#aboutUs .content .way { margin-top: 0.7rem; text-align: center; }
+
+#aboutUs .content .way ul { margin: 0.68rem auto 1.36rem; font-size: 0.24rem; color: #8f8f86; width: 7rem; }
+
+#aboutUs .content .way ul li { margin-bottom: 0.42rem; display: -webkit-box; display: flex; }
+
+#aboutUs .content .way ul li:last-child { margin-bottom: 0; }
+
+#aboutUs .content .way ul li span { min-width: 1.5rem; text-align: left; }
+
+#aboutUs .content .right-logo { position: absolute; right: 0.3rem; bottom: -0.38rem; background: #fafafa; padding: 0.12rem .2rem; font-size: 0.5rem; font-weight: 700; line-height: 1; color: #b6b6af; text-shadow: 0 0 2px #EAEAE5; }

@@ -1,0 +1,9 @@
+#trademark .banner { height: 5.4rem; }
+
+#trademark .banner img { width: 100%; vertical-align: middle; }
+
+#trademark .content { margin: 1.2rem 2.6rem 1rem; border: 0.05rem solid #eaeae5; position: relative; }
+
+#trademark .content .title { background: #fff; padding: 0 1.13rem; font-size: 0.35rem; color: #000; line-height: 1; position: absolute; top: -.215rem; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+
+#trademark .content .text { margin: .7rem .4rem; font-size: .24rem; color: #000; line-height: .4rem; }

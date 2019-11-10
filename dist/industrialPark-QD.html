@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>产业园</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/industrial_park.css" />
@@ -34,8 +33,7 @@
     </script>
  <header>
   <ul class="nav visible">
-     
-       <li class="park active">
+      <li class="active" >
         <a>国内园区</a>
         <div class="menu">
           <ul>
@@ -48,7 +46,6 @@
           </ul>
         </div>
       </li>
-     
     <li ><a href="./mainBusiness.html">主要业务</a></li>
     <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
     <li ><a href="./latestNews.html">最新动态</a></li>
@@ -59,7 +56,7 @@
   </ul>
 </header>
 <script>
-$('.nav li.park, .menu').hover(function(){
+$('.nav li:first, .menu').hover(function(){
   $('.menu', this).stop().fadeIn(200)
 },function() {
   $('.menu', this).stop().fadeOut(200)
@@ -201,9 +198,9 @@ window.addEventListener('scroll', debounce(50, function(e) {
           </div>
         </div>
         <div class="menu">
-          <p><a href="">关于我们</a></p>
-          <p><a href="">商标声明</a></p>
-          <p><a href="">隐私政策</a></p>
+          <p><a href="./aboutUs.html">关于我们</a></p>
+          <p><a href="./trademark.html">商标声明</a></p>
+          <p><a href="./privacyPolicy.html">隐私政策</a></p>
         </div>
         <div class="address">
           <p>北服创新园官方微博：BIFTPARK</p>

@@ -1,0 +1,177 @@
+#latestNews {
+  .banner {
+    height: 5.4rem;
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+  }
+  .tab {
+    width: 13.2rem;
+    margin: 0.5rem auto 0.74rem;
+    border: 0.05rem solid #eaeae5;
+    position: relative;
+    .title {
+      background: #fff;
+      padding: 0 1.13rem;
+      font-size: 0.4rem;
+      letter-spacing: 5px;
+      color: #8f8f86;
+      line-height: 1;
+      position: absolute;
+      top: -0.215rem;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+    }
+    .tab-item {
+      display: flex;
+      height: 1.2rem;
+      span {
+        flex: 1;
+        line-height: 1;
+        color: #c7c7bd;
+        font-size: 0.35rem;
+        position: relative;
+        transition: all 0.2s;
+        text-align: center;
+        a {
+          height: 100%;
+          display: inline-block;
+          line-height: 1.2rem;
+        }
+        cursor: pointer;
+        &.active {
+          color: #8f8f86;
+          text-shadow: 0 3px 4px #c7c7bd;
+          position: relative;
+          a {
+            border-bottom: 0.05rem solid #fff;
+            background: #fff;
+            z-index: 1;
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -0.5rem;
+              width: 0.6rem;
+              height: 0.52rem;
+              left: 50%;
+              z-index: -1;
+              transform: translateX(-50%);
+              background: url("../images/cur-point.png") no-repeat;
+              background-size: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+  .tab-content-box {
+    margin: 1.25rem 1rem 0;
+    .tab-content {
+      display: none;
+      .content-item {
+        margin-bottom: 0.5rem;
+        > a {
+          display: flex;
+          align-items: center;
+        }
+        &:nth-child(odd) {
+          > a {
+            justify-content: flex-start;
+            .text {
+              margin-left: -0.1rem;
+              &::before {
+                right: -0.25rem;
+                background-image: url("../images/subscript1.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+              em {
+                right: 0.25rem;
+              }
+            }
+          }
+        }
+        &:nth-child(even) {
+          > a {
+            justify-content: flex-end;
+            .text {
+              margin-right: -0.1rem;
+              &::before {
+                left: -0.25rem;
+                background-image: url("../images/subscript2.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+              em {
+                left: 0.25rem;
+              }
+            }
+          }
+        }
+        .img {
+          width: 7.8rem;
+          height: 4.2rem;
+          z-index: 1;
+          img {
+            width: 100%;
+          }
+        }
+        .text {
+          position: relative;
+          z-index: -1;
+          width: 5rem;
+          height: 3.07rem;
+          border: 0.05rem solid #eaeae5;
+          padding: 0 0.92rem;
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0.92rem;
+            height: 0.68rem;
+            top: -0.15rem;
+          }
+          h3 {
+            margin-top: 0.4rem;
+            color: #8f8f86;
+            font-size: 0.3rem;
+            line-height: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+          }
+          p {
+            margin-top: 0.4rem;
+            font-size: 0.24rem;
+            line-height: 0.3rem;
+            color: #8f8f86;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          span {
+            display: inline-block;
+            margin-top: 0.4rem;
+            font-size: 0.18rem;
+            color: #8f8f86;
+            line-height: 1;
+          }
+          em {
+            font-style: normal;
+            position: absolute;
+            bottom: -0.2rem;
+            font-size: 0.18rem;
+            color: #8f8f86;
+            line-height: 1;
+            background: #fff;
+            padding: 0.05rem 0.33rem;
+          }
+        }
+      }
+    }
+  }
+}

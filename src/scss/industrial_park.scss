@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 1.07rem);
     position: relative;
     background-color: #fef4eb;
     background-size: cover;
@@ -35,7 +35,7 @@
     background-repeat: no-repeat;
     .building-box {
       width: 100%;
-      height: 100vh;
+      height: 100%;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -132,7 +132,7 @@
           display: inline-block;
           width: 4.32rem;
           height: 2.37rem;
-          background-image: url("../images/banner-logo.png") center center;
+          background-image: url("../images/banner-logo.png");
           background-repeat: no-repeat;
           background-position: center center;
           background-size: contain;

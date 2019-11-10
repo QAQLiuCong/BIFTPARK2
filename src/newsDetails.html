@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>隐私政策</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="@@webRoot/css/common.css" />
+    <link rel="stylesheet" href="@@webRoot/css/newsDetails.css" />
+    <script src="@@webRoot/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    @@include('@@webRoot/template/loading.html') @@include('@@webRoot/template/header.html', {"active": "newsDetails"})
+    <main id="newsDetails">
+      <!-- banner -->
+      <div class="banner">
+        <img src="@@webRoot/images/other-banner.png" alt="" />
+      </div>
+      <!-- content -->
+      <h3 class="title">标题标题标题标题标题标题标题</h3>
+      <div class="content">
+        <p class="time">2013年3月12日</p>
+        <div class="text"></div>
+      </div>
+    </main>
+    @@include('@@webRoot/template/footer.html')
+  </body>
+</html>
