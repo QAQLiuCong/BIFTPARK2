@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>最新动态</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/businessDetails.css" />
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/common.min.js"></script>
+  </head>
+
+  <body>
+    <div id="loading" class="loading">
+      <div class="loading-img">
+        <img src="../images/loading.gif" alt="" />
+      </div>
+    </div>
+    <script id="load-script">
+      //监听加载状态改变
+      document.onreadystatechange = completeLoading;
+      //加载状态为complete时移除loading效果
+      function completeLoading() {
+        if (document.readyState == "complete") {
+          var loadingMask = document.getElementById("loading");
+          var loadScript = document.getElementById("load-script");
+          loadingMask.style.top = "-100vh";
+          setTimeout(function() {
+            loadingMask.parentNode.removeChild(loadingMask);
+            loadScript.parentNode.removeChild(loadScript);
+          }, 1000);
+        }
+      }
+    </script>
+ <header>
+  <ul class="nav visible">
+      <li  >
+        <a>国内园区</a>
+        <div class="menu">
+          <ul>
+            <li><a href="./industrialPark-BJ.html">北京园区</a></li>
+            <li><a href="./industrialPark-RC.html">容城园区</a></li>
+            <li><a href="./industrialPark-CF.html">晨风园区</a></li>
+            <li><a href="./industrialPark-HN.html">海宁园区</a></li>
+            <li><a href="./industrialPark-QD.html">青岛园区</a></li>
+            <li><a href="./industrialPark-XC.html">兴城园区</a></li>
+          </ul>
+        </div>
+      </li>
+    <li class="active"><a href="./mainBusiness.html">主要业务</a></li>
+    <li  type="logo"><a href="./index.html"><img src="./images/logo.svg" alt=""></a></li>
+    <li ><a href="./latestNews.html">最新动态</a></li>
+    <li ><a href="./aboutUs.html">关于我们</a></li>
+    <li class="language">
+      <span class="cur">中文</span>/<span>EN</span>
+    </li>
+  </ul>
+</header>
+<script>
+$('.nav li:first, .menu').hover(function(){
+  $('.menu', this).stop().fadeIn(200)
+},function() {
+  $('.menu', this).stop().fadeOut(200)
+})
+
+var debounce = function(idle, action) {
+  var last
+  return function() {
+    var ctx = this, args = arguments
+    clearTimeout(last)
+    last = setTimeout(function() {
+      action.apply(ctx, args)
+    }, idle)
+  }
+}
+window.addEventListener('scroll', debounce(50, function(e) {
+    var scrollY = 0
+    if (window.scrollY) {
+        scrollY = window.scrollY
+    } else {
+        scrollY = $(document).scrollTop()
+    }
+    if (scrollY < 50) {
+        return $('header .nav').addClass('visible')
+    }
+    e.target.oldScrollTopPosition = e.target.scrollTopPosition || 0
+    e.target.scrollTopPosition = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0) || 0
+    var direction = 'down'
+    if (e.target.scrollTopPosition - e.target.oldScrollTopPosition < 0) {
+        direction = 'up'
+    }
+    if (e.target.scrollTopPosition > 0) {
+        if (direction === 'down') {
+          $('header .nav').removeClass('visible')
+        } else {
+          $('header .nav').addClass('visible')
+        }
+    }
+}))
+</script>
+    <main id="businessDetails">
+      <!-- banner -->
+      <div class="banner">
+        <img src="./images/other-banner.png" alt="" />
+      </div>
+      <!-- content -->
+      <div class="content">
+        <span class="title">专业研修</span>
+        <div class="desc">
+          针对民族服饰、传统工艺、设计思维、创新科技、新型材料和时尚文化等各类话题，邀请时尚院校和企业的专家为设计师们开设专题讲座和训练营。
+        </div>
+        <div class="course-info">
+          <span class="title">课程简介</span>
+          <div class="info">
+            <div>
+              <div class="item">
+                <h3>皮草</h3>
+                <ul>
+                  <li>秋冬服装设计思维与系统方法实践</li>
+                </ul>
+              </div>
+              <div class="item">
+                <h3>旗袍</h3>
+                <ul>
+                  <li>薄羊绒单旗袍课程</li>
+                  <li>传统厚单旗袍与棉袄/棉褂课程</li>
+                  <li>裘皮旗袍课程</li>
+                  <li>正绢单旗袍课程</li>
+                  <li>纱旗袍集训班</li>
+                  <li>正绢夹袄服</li>
+                </ul>
+              </div>
+              <div class="item">
+                <h3>中式常服</h3>
+                <ul>
+                  <li>大衣</li>
+                  <li>女褂</li>
+                  <li>长裤</li>
+                  <li>中式马甲</li>
+                  <li>旗袍（港式旗袍）</li>
+                </ul>
+              </div>
+              <div class="item">
+                <h3>珠绣</h3>
+                <ul>
+                  <li>珠绣基础班</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="item">
+                <h3>拼布</h3>
+                <ul>
+                  <li>拼布中级班</li>
+                  <li>缤纷五彩手工拼布包包系列课程</li>
+                  <li>制作真丝（绡）“姹紫嫣红”拼布杯垫课程</li>
+                </ul>
+              </div>
+              <div class="item">
+                <h3>金工</h3>
+                <ul>
+                  <li>錾刻</li>
+                  <li>一只小虫-金工亲子课</li>
+                  <li>基础系列课程之三个戒指</li>
+                  <li>破壳为饰-当大漆遇到首饰</li>
+                  <li>锋刃雕蜡 烈火融金-首饰铸造基础课</li>
+                  <li>珠宝美学-从《权力的游戏》一窥中世纪英伦珠宝</li>
+                </ul>
+              </div>
+              <div class="item">
+                <h3>京绣</h3>
+                <ul>
+                  <li>京绣初级集训班</li>
+                  <li>京绣中级周末班</li>
+                  <li>京绣中级集训班</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="way">
+          <ul class="text">
+            <li><span>联系人：</span></li>
+            <li><span>联系电话：</span></li>
+            <li><span>地址：</span></li>
+          </ul>
+          <div class="code">
+            <img src="./images/way-qr.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="top">
+        <div class="footer-logo">
+          <div>
+            <img src="./images/footer-bjfzxy-logo.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-logo.png" alt="" />
+          </div>
+        </div>
+        <div class="menu">
+          <p><a href="./aboutUs.html">关于我们</a></p>
+          <p><a href="./trademark.html">商标声明</a></p>
+          <p><a href="./privacyPolicy.html">隐私政策</a></p>
+        </div>
+        <div class="address">
+          <p>北服创新园官方微博：BIFTPARK</p>
+          <p>北服创新园官方微信公众号：中关村时尚产业创新园 BIFTPARK</p>
+        </div>
+        <div class="qr-code">
+          <div>
+            <img src="./images/footer-code1.png" alt="" />
+          </div>
+          <div>
+            <img src="./images/footer-code2.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>© 2012 - 2018 北京北服时尚投资管理有限公司</p>
+        <p>京ICP备18000308号-1</p>
+      </div>
+    </footer>
+
+    <script src="./js/latestNews.min.js"></script>
+  </body>
+</html>

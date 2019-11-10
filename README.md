@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Gulp4 工作流配置(Gulp4 workflow config)
 
 ## 简介(Introduction)
@@ -100,7 +99,3 @@ $ gulp clean
 # 清理指定环境目录 - Clean up the specified environment directory
 $ gulp clean --test
 ```
-=======
-# BIFTPARK2
-官网
->>>>>>> eba2d2c3e9cb99942541f304e0123de48d95735e
